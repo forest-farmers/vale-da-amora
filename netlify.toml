@@ -1,5 +1,4 @@
 [build]
-  base    = "vale-da-amora"
   publish = "."
 
 [[headers]]

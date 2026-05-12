@@ -1,37 +1,41 @@
 # Vale da Amora — static site
 
-The public site for **valedaamora.pt** (the land), separate from the Forest Farmers app in `/site`.
+Public site for **valedaamora.pt** — the land in Montemor-o-Novo.
 
-Plain HTML/CSS/JS. No build step.
+Plain HTML / CSS / JS. No build step.
 
 ## Local preview
 
 ```bash
-npx serve vale-da-amora
+python -m http.server 8080
 # or
-python -m http.server -d vale-da-amora 8080
+npx serve .
 ```
+
+Then open <http://localhost:8080>.
 
 ## Deploy on Netlify
 
-This folder is deployed as a **second Netlify site** on the same account as the app. Both sites point at the same GitHub repo; each one is scoped to its own base directory.
+This repo deploys directly to Netlify. Settings:
 
-Settings to use when creating the new Netlify site:
+- **Branch to deploy**: `main`
+- **Base directory**: empty
+- **Build command**: empty
+- **Publish directory**: `.` (handled by `netlify.toml`)
 
-- **Repository**: same repo as the app
-- **Base directory**: `vale-da-amora`
-- **Publish directory**: `vale-da-amora` (or leave it as the default — `netlify.toml` overrides it)
-- **Build command**: leave empty
-
-The `netlify.toml` in this folder takes precedence over the one at the repo root because of the base-directory setting.
+`netlify.toml` sets security headers and long-cache rules for assets.
 
 ## Domain
 
-Once **valedaamora.pt** DNS is ready, add it under *Domain management* in the Netlify site. Set up a 301 redirect from **pollen-pod.com → valedaamora.pt** either:
+Custom domain **valedaamora.pt** is managed in Netlify under *Domain management*. HTTPS is auto-provisioned by Netlify (Let's Encrypt).
 
-- In Netlify (add `pollen-pod.com` as a domain alias on the new site, then add a `_redirects`/`netlify.toml` rule to 301 to `valedaamora.pt`), or
-- At the registrar / current DNS host until pollen-pod.com expires.
+For the legacy `pollen-pod.com` domain: add it as a domain alias on this site — Netlify will 301-redirect it to `valedaamora.pt`.
 
-## Swapping the logo
+## Updating the logo
 
-When the real logo arrives, drop the SVG at `assets/logo.svg` and replace the `<span class="brand-mark">` element in `index.html` with `<img src="/assets/logo.svg" alt="Vale da Amora" class="brand-mark">`.
+Drop a new SVG at `assets/logo.svg`. The nav and favicon both reference it.
+PNG exports for social media are at `assets/logo-{512,1024}-{transparent,cream}.png` — regenerate by running the script in the commit history if you change the SVG.
+
+## i18n
+
+Strings live in `assets/js/main.js` under the `STRINGS` object — `pt` and `en` keys. The PT copy is also the default in `index.html` (visible if JS doesn't load).
