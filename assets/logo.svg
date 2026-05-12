@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="Vale da Amora">
+  <title>Vale da Amora</title>
+  <g fill="none" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Leaf -->
+    <path d="M 18 6 C 8 6, 4 14, 6 22 C 8 28, 16 30, 22 26 C 26 22, 26 14, 22 10 C 20 7, 18 6, 18 6 Z M 13 11 C 16 16, 19 20, 21 24" stroke="#2f8b3a" fill="#2f8b3a" />
+    <!-- Stem -->
+    <path d="M 22 22 C 28 28, 32 33, 36 36" stroke="#2f8b3a" />
+
+    <!-- Top point -->
+    <circle cx="40" cy="42" r="6.5" stroke="#1f5d28" />
+
+    <!-- Row of 3 -->
+    <circle cx="32" cy="52" r="6.5" stroke="#1f5d28" />
+    <circle cx="46" cy="52" r="6.5" stroke="#4ea64a" />
+    <circle cx="60" cy="52" r="6.5" stroke="#1f5d28" />
+
+    <!-- Row of 4 (widest) -->
+    <circle cx="25" cy="64" r="6.5" stroke="#1f5d28" />
+    <circle cx="39" cy="64" r="6.5" stroke="#82c441" />
+    <circle cx="53" cy="64" r="6.5" stroke="#4ea64a" />
+    <circle cx="67" cy="64" r="6.5" stroke="#1f5d28" />
+
+    <!-- Row of 3 -->
+    <circle cx="32" cy="76" r="6.5" stroke="#2f8b3a" />
+    <circle cx="46" cy="76" r="6.5" stroke="#82c441" />
+    <circle cx="60" cy="76" r="6.5" stroke="#2f8b3a" />
+
+    <!-- Row of 2 -->
+    <circle cx="39" cy="88" r="6.5" stroke="#1f5d28" />
+    <circle cx="53" cy="88" r="6.5" stroke="#2f8b3a" />
+  </g>
+</svg>

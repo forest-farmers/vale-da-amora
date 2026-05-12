@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="pt">
+<head>
+<meta charset="utf-8" />
+<title>Contact sheet — Vale da Amora</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<style>
+  body {
+    margin: 0;
+    padding: 2rem;
+    background: #1a1612;
+    color: #f3ecdb;
+    font: 14px/1.4 -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  }
+  h1 { font-weight: 400; font-size: 1.25rem; margin: 0 0 .25rem; }
+  p { color: #a89878; margin: 0 0 1.5rem; }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1rem;
+  }
+  .item {
+    background: #25201a;
+    border-radius: 4px;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    transition: transform .15s;
+  }
+  .item:hover { transform: scale(1.02); }
+  .item img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    display: block;
+    background: #000;
+  }
+  .item .num {
+    padding: .55rem .7rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-variant-numeric: tabular-nums;
+  }
+  .item .num strong { font-weight: 600; color: #f3ecdb; }
+  .item .num span { color: #8a7d6a; font-size: .8rem; }
+</style>
+</head>
+<body>
+<h1>Vale da Amora — contact sheet</h1>
+<p>All 26 photos with their numbers. Click any image to open it full size. Use the numbers to tell me which photo to use where.</p>
+<div class="grid" id="grid"></div>
+<script>
+  const grid = document.getElementById('grid');
+  for (let i = 1; i <= 26; i++) {
+    const n = String(i).padStart(2, '0');
+    const src = `/assets/photos/photo-${n}.jpg`;
+    const a = document.createElement('a');
+    a.className = 'item';
+    a.href = src;
+    a.target = '_blank';
+    a.innerHTML = `<img src="${src}" alt="photo ${n}" loading="lazy" /><div class="num"><strong>photo-${n}</strong><span>open ↗</span></div>`;
+    grid.appendChild(a);
+  }
+</script>
+</body>
+</html>
